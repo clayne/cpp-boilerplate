@@ -12,7 +12,11 @@
 #   - ENABLE_WARNINGS_SETTINGS
 #   - ENABLE_LTO
 #
-cmake_minimum_required(VERSION 3.16)
+
+# Tells cmake the minimum version supported is 3.16, but has been updated to work with 3.29 policies
+# It is recommended to use the `cmake_minimum_required(VERSION <min>[...<max>])` syntax to indicate the max version that was known to work.
+# Many projects broke when CMake 4.0 was released even though they should have been compatible.
+cmake_minimum_required(VERSION 3.16...3.29)
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
     message(FATAL_ERROR "Do not build in-source. Please remove CMakeCache.txt and the CMakeFiles/ directory. Then build out-of-source.")
@@ -248,7 +252,6 @@ if(${PROJECT_NAME}_INSTALL)
         TARGETS 
           BoilerPlate # We can install executables
           bp_foo      # ... and libraries
-          fmt         # If we compiled other libraries using add_subdirectory instead of find_package (target is not exported), we'll need to export them too (they are needed for linking) your library.
         EXPORT ${PROJECT_NAME}_Targets
     # Following is only needed pre-cmake3.14
     #    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

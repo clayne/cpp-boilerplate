@@ -13,7 +13,7 @@ if(RUN_IT)
 	fixup_bundle("${TO_FIXUP_FILE}" "${TO_FIXUP_LIBS}" "${TO_FIXUP_DIRS}")
 # End of script ran by the add_custom_command
 else()
-	set(THIS_FILE ${CMAKE_CURRENT_LIST_FILE} PARENT_SCOPE)
+	set(THIS_FILE ${CMAKE_CURRENT_LIST_FILE})
 	function(copy_dlls_for_debug _target _libs _dirs)
 		if(WIN32)
 

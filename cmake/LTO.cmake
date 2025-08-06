@@ -52,7 +52,7 @@
 # SOFTWARE.
 
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.5)
 
 option(ENABLE_LTO "enable link time optimization" ON)
 
